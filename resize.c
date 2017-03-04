@@ -3,6 +3,8 @@
 
 #include "bmp.h"
 
+#define RGBTRIPLESIZE 3
+
 int main(int argc, char *argv[])
 {
     // Количество передаваемых аргументов должно быть 4
@@ -89,7 +91,7 @@ int main(int argc, char *argv[])
         // Позиционирование курсора в начальное положение n раз
         // Записать по вертикали n раз
         if (i % n != 0)
-            fseek(inptr, -(bi.biWidth * 3 + padding), SEEK_CUR);
+            fseek(inptr, -(bi.biWidth * RGBTRIPLESIZE + padding), SEEK_CUR);
     
         // Пройти по пикселям в строках
         for (int j = 0; j < bi.biWidth; j++)
